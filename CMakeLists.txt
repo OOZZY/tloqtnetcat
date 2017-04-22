@@ -12,12 +12,6 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
-# - pthreads required
-# - see https://cmake.org/cmake/help/v3.6/module/FindThreads.html
-set(CMAKE_THREAD_PREFER_PTHREAD ON)
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)
-
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   set(flags "-std=c++14 -pedantic -Wall -Wextra -Werror")
@@ -41,8 +35,6 @@ set(CMAKE_CXX_FLAGS_DEBUG "${debug_flags}" CACHE STRING
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(tlo)
-add_executable(tloqtcrapnetcat tloqtcrapnetcat.cpp)
-target_link_libraries(tloqtcrapnetcat tloqtnetcatcore)
 add_executable(tloqtnetcatgui tloqtnetcatgui.cpp)
 target_link_libraries(tloqtnetcatgui tloqtnetcatcore)
 add_executable(tloqtnetcat tloqtnetcat.cpp)
