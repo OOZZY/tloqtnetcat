@@ -1,6 +1,5 @@
-project("tloqtnetcat")
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-set(CMAKE_LEGACY_CYGWIN_WIN32 0)
+project("tloqtnetcat")
 enable_testing()
 
 # - Qt5Network and Qt5Widgets required
