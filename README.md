@@ -28,6 +28,6 @@ $ make
 Run.
 
 ```
-$ ./tloqtnetcat
-$ ./tloqtnetcatgui
+$ ./src/tloqtnetcat
+$ ./src/tloqtnetcatgui
 ```

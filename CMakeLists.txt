@@ -6,8 +6,9 @@ enable_testing()
 # - see http://doc.qt.io/qt-5/cmake-manual.html
 # - set CMAKE_PREFIX_PATH to qt5 install directory before/when running cmake
 #   - eg: CMAKE_PREFIX_PATH=/path/to/Qt/5.7/gcc_64 cmake <arguments>
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# - https://cmake.org/cmake/help/v3.10/manual/cmake-qt.7.html
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 find_package(Qt5Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
@@ -31,10 +32,4 @@ set(CMAKE_CXX_FLAGS "${flags}" CACHE STRING
 set(CMAKE_CXX_FLAGS_DEBUG "${debug_flags}" CACHE STRING
     "Flags used by the compiler during debug builds." FORCE)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-add_subdirectory(tlo)
-add_executable(tloqtnetcatgui tloqtnetcatgui.cpp)
-target_link_libraries(tloqtnetcatgui tloqtnetcatcore)
-add_executable(tloqtnetcat tloqtnetcat.cpp)
-target_link_libraries(tloqtnetcat tloqtnetcatcore)
+add_subdirectory(src)
